@@ -1,0 +1,137 @@
+{
+  "openapi" : "3.0.0",
+  "info" : {
+    "title" : "home-iot-api",
+    "description" : "The API for the EatBacon IOT project",
+    "version" : "1.0.0"
+  },
+  "servers" : [ {
+    "url" : "https://api.openweathermap.org/data/2.5",
+    "description" : "OpenWeather API Auto"
+  } ],
+  "paths" : {
+    "/weathers" : {
+      "get" : {
+        "summary" : "Запит погоди",
+        "operationId" : "giveWeather",
+        "parameters" : [ {
+          "name" : "q",
+          "in" : "query",
+          "description" : "The city for which you want to get the weather information",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "example" : "Kyiv"
+          }
+        }, {
+          "name" : "appid",
+          "in" : "query",
+          "description" : "Your OpenWeatherMap API key",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "example" : "011f064641e6cb25778c2333528e898a"
+          }
+        }, {
+          "name" : "units",
+          "in" : "query",
+          "description" : "The unit of measurement for temperature (metric, imperial, or standard)",
+          "required" : false,
+          "schema" : {
+            "type" : "string",
+            "enum" : [ "metric", "imperial", "standard" ],
+            "default" : "metric"
+          }
+        }, {
+          "name" : "lang",
+          "in" : "query",
+          "description" : "The language for the response",
+          "required" : false,
+          "schema" : {
+            "type" : "string",
+            "example" : "ua"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "відповідь має успіх",
+            "content" : {
+              "application/json" : {
+                "example" : {
+                  "coord" : {
+                    "lon" : 30.5241,
+                    "lat" : 50.4501
+                  },
+                  "weather" : [ {
+                    "id" : 801,
+                    "main" : "Clouds",
+                    "description" : "кілька хмар",
+                    "icon" : "02d"
+                  } ],
+                  "base" : "stations",
+                  "main" : {
+                    "temp" : 19.52,
+                    "feels_like" : 18.99,
+                    "temp_min" : 19.02,
+                    "temp_max" : 20.71,
+                    "pressure" : 1014,
+                    "humidity" : 56
+                  },
+                  "visibility" : 10000,
+                  "wind" : {
+                    "speed" : 2.17,
+                    "deg" : 242,
+                    "gust" : 2.65
+                  },
+                  "clouds" : {
+                    "all" : 21
+                  },
+                  "dt" : 1696325885,
+                  "sys" : {
+                    "type" : 2,
+                    "id" : 2003742,
+                    "country" : "UA",
+                    "sunrise" : 1696305614,
+                    "sunset" : 1696347225
+                  },
+                  "timezone" : 10800,
+                  "id" : 703448,
+                  "name" : "Kyiv",
+                  "cod" : 200
+                }
+              }
+            },
+            "x-swagger-router-controller" : "Weathers"
+          },
+          "401" : {
+            "description" : "Помилка ключа",
+            "content" : {
+              "application/json" : {
+                "example" : {
+                  "message" : "Invalid API key. Please see https://openweathermap.org/faq#error401 for more info."
+                }
+              }
+            },
+            "x-swagger-router-controller" : "Weathers"
+          },
+          "400" : {
+            "description" : "Помилка геоположення",
+            "content" : {
+              "application/json" : {
+                "example" : {
+                  "message" : "Nothing to geocode"
+                }
+              }
+            },
+            "x-swagger-router-controller" : "Weathers"
+          },
+          "default" : {
+            "description" : "Unexpected error",
+            "x-swagger-router-controller" : "Weathers"
+          }
+        }
+      }
+    }
+  },
+  "components" : { }
+}
