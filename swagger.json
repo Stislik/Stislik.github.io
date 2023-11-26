@@ -10,7 +10,7 @@
     "description" : "OpenWeather API Auto"
   } ],
   "paths" : {
-    "/weathers" : {
+    "/weather" : {
       "get" : {
         "summary" : "Запит погоди",
         "operationId" : "giveWeather",
