@@ -184,6 +184,15 @@
         font-size: 18px; 
         font-weight: bold;
       }
+      .or{        
+        color: #E28964;
+      }
+      .gr{
+        color: rgb(74, 171, 42);
+      }
+      .bl{
+        color: rgb(42, 126, 171);
+      }
     </style>
   </head>
   <body>
@@ -310,7 +319,7 @@
         <td class="w500"><span style="font-size: 16px;">Unexpected error</span><br></tr>
       </tbody></table>  
       
-      <div style="margin-top: 20px; margin-bottom: 10px;"><span style="font-size: 20px; font-weight: bold;">Змінні та їх значення</span></div>
+      <div style="margin-top: 20px; margin-bottom: 10px;"><span style="font-size: 24px; font-weight: bold;">Змінні та їх значення</span></div>
       <code class="cc">coord</code> <br>
         <ul><code class="cc">lon</code> - Довгота місцезнаходження <br>
           <code class="cc">lat</code> - Широта місця розташування  <br></ul>
@@ -345,8 +354,79 @@
       <code class="cc">id</code> - Ідентифікатор міста. Зверніть увагу, що вбудований функціонал геокодера застарілий.<br>
       <code class="cc">name</code> - Назва міста. Зверніть увагу, що вбудований функціонал геокодера застарілий.<br>
       <code class="cc">cod</code> - Внутрішній параметр <br>
-
     </div>
+    <div class="tr2" style="margin-top: 30px;"><span style="font-size: 24px; font-weight: bold;">Використання та приклади SDK</span></div>
+    <table>
+      <tr><td class="w120 tr2"><span style="font-size: 18px; font-weight: bold; ">Curl</span></td> <td class="w500 tr2"><Span>Приклад:</Span></td></tr>
+      <tr><td class="w120 tr2"></td><td class="w500 tr2"> <code style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(51,51,51); color: white;
+        line-height: 1.2; border: 1px solid #ccc; max-width: 850px; padding-right: 50px;">
+    curl -X GET\
+    <span class="gr">-H "Accept: application/json"</span>\
+    <span class="gr">"https://api.openweathermap.org/data/2.5//weathers?q=&appid=&units=&lang="</span>
+          </code></td></tr>
+      <tr><td class="w120 tr2"><span style="font-size: 18px; font-weight: bold; ">JavaScript</span></td> <td class="w500 tr2"><Span>Приклад:</Span></td></tr>
+      <tr><td class="w120 tr2"></td><td class="w500 tr2"> <code style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(51,51,51); color: white;
+      line-height: 1.2; border: 1px solid #ccc; max-width: 850px; padding-right: 50px;">
+    <span class="or">var </span><span class="bl">HomeIotApi</span> = require(<span class="gr">'home_iot_api'</span>);
+
+    <span class="or">var</span> api = <span class="or">new </span><span class="bl">HomeIotApi.DefaultApi</span>()
+    <span class="or">var</span> q = q_example; // {{String}} The city for which you want to get the weather information
+    <span class="or">var</span> appid = appid_example; // {{String}} Your OpenWeatherMap API key
+    <span class="or">var</span> opts = { 
+      <span class="gr">'units'</span>: units_example, // {{String}} The unit of measurement for temperature (metric, imperial, or standard)
+      <span class="gr">'lang'</span>: lang_example // {{String}} The language for the response
+    };
+    <span class="or">var</span> callback = <span class="or">function</span>(error, data, response) {
+      <span class="or">if</span> (error) {
+        console.error(error);
+      } <span class="or">else</span> {
+        console.log(<span class="gr">'API called successfully.'</span>);
+      }
+    };
+    api.giveWeather(q, appid, opts, callback);
+      </code></td></tr>
+      <tr><td class="w120 tr2"><span style="font-size: 18px; font-weight: bold; ">PHP</span></td> <td class="w500 tr2"><Span>Приклад:</Span></td></tr>
+      <tr><td class="w120 tr2"></td><td class="w500 tr2"> <code style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(51,51,51); color: white;
+        line-height: 1.2; border: 1px solid #ccc; max-width: 850px; padding-right: 50px;">
+    <?php
+    require_once(__DIR__ . <span class="gr">'/vendor/autoload.php'</span>);
+
+    $api_instance = <span class="or"> new</span> <span class="bl">Swagger</span>\Client\ApiDefaultApi();
+    $q = q_example; // String | The city for which you want to get the weather information
+    $appid = appid_example; // String | Your OpenWeatherMap API key
+    $units = units_example; // String | The unit of measurement for temperature (metric, imperial, or standard)
+    $lang = lang_example; // String | The language for the response
+
+    <span class="or">try</span> {
+        $api_instance->giveWeather($q, $appid, $units, $lang);
+    } <span class="or">catch</span> (<span class="bl">Exception</span> $e) {
+        echo <span class="gr">'Exception when calling DefaultApi->giveWeather: '</span>, $e->getMessage(), PHP_EOL;
+    }
+    ?>
+      </code></td></tr>
+      <tr><td class="w120 tr2"><span style="font-size: 18px; font-weight: bold; ">Python</span></td> <td class="w500 tr2"><Span>Приклад:</Span></td></tr>
+      <tr><td class="w120 tr2"></td><td class="w500 tr2"> <code style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(51,51,51); color: white;
+        line-height: 1.2; border: 1px solid #ccc; max-width: 850px; padding-right: 50px;">
+    <span class="or">from __future__</span> <span class="or">import</span> print_statement
+    <span class="or">import</span>  time
+    <span class="or">import</span> swagger_client
+    <span class="or">from</span> swagger_client.rest <span class="or">import</span> <span class="bl">ApiException</span>
+    <span class="or">from</span> pprint <span class="or">import</span> pprint
+
+    # create an instance of the API class
+    api_instance = swagger_client.<span class="bl">DefaultApi</span>()
+    q = q_example # String | The city for which you want to get the weather information
+    appid = appid_example # String | Your OpenWeatherMap API key
+    units = units_example # String | The unit of measurement for temperature (metric, imperial, or standard)
+    lang = lang_example # String | The language for the response (optional)
+
+    <span class="or">try</span>: 
+        # Запит погоди
+        api_instance.give_weather(q, appid, units=units, lang=lang)
+    <span class="or">except</span> <span class="bl">ApiException</span> <span class="or">as</span> e:
+        <span class="or">print</span>(<span class="gr">"Exception when calling DefaultApi->giveWeather: %s\n"</span> % e)
+          </code></td></tr>
+    </table>
     
   </body>
 </html>
