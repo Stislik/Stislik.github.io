@@ -5,12 +5,18 @@
     <title>API Documentation</title>
     <style type="text/css">
       body {
-      	font-family: Trebuchet MS, sans-serif;
+      	display: block;
+        max-width: 1080px;
+        font-family:sans-serif;
       	font-size: 15px;
       	color: #444;
-      	margin-right: 24px;
+      	margin-right: auto;
+        margin-left: auto;        
       }
-      
+      .toptitle{
+        background-color: #0fb454;
+        color: #fff;
+      }
       h1	{
       	font-size: 25px;
       }
@@ -37,98 +43,77 @@
       }
       .license-info {
         margin-left: 20px;
-      }
-      
+      }      
       .license-url {
         margin-left: 20px;
-      }
-      
+      }      
       .model {
         margin: 0 0 0px 20px;
-      }
-      
+      }      
       .method {
         margin-left: 20px;
-      }
-      
+      }      
       .method-notes	{
       	margin: 10px 0 20px 0;
       	font-size: 90%;
       	color: #555;
-      }
-      
+      }      
       pre {
         padding: 10px;
         margin-bottom: 2px;
-      }
-      
+      }      
       .http-method {
        text-transform: uppercase;
-      }
-      
+      }      
       pre.get {
         background-color: #0f6ab4;
-      }
-      
+      }      
       pre.post {
         background-color: #10a54a;
-      }
-      
+      }      
       pre.put {
         background-color: #c5862b;
-      }
-      
+      }      
       pre.delete {
         background-color: #a41e22;
-      }
-      
+      }      
       .huge	{
       	color: #fff;
-      }
-      
+      }      
       pre.example {
         background-color: #f3f3f3;
         padding: 10px;
         border: 1px solid #ddd;
-      }
-      
+      }      
       code {
         white-space: pre;
-      }
-      
+      }      
       .nickname {
         font-weight: bold;
-      }
-      
+      }      
       .method-path {
         font-size: 1.5em;
         background-color: #0f6ab4;
-      }
-      
+      }      
       .up {
         float:right;
-      }
-      
+      }      
       .parameter {
         width: 500px;
-      }
-      
+      }      
       .param {
         width: 500px;
         padding: 10px 0 0 20px;
         font-weight: bold;
-      }
-      
+      }      
       .param-desc {
         width: 700px;
         padding: 0 0 0 20px;
         color: #777;
-      }
-      
+      }      
       .param-type {
         font-style: italic;
-      }
-      
+      }      
       .param-enum-header {
       width: 700px;
       padding: 0 0 0 60px;
@@ -141,32 +126,26 @@
       padding: 0 0 0 80px;
       color: #777;
       font-style: italic;
-      }
-      
+      }      
       .field-label {
         padding: 0;
         margin: 0;
         clear: both;
-      }
-      
+      }      
       .field-items	{
       	padding: 0 0 15px 0;
       	margin-bottom: 15px;
-      }
-      
+      }      
       .return-type {
         clear: both;
         padding-bottom: 10px;
-      }
-      
+      }      
       .param-header {
         font-weight: bold;
-      }
-      
+      }      
       .method-tags {
         text-align: right;
-      }
-      
+      }      
       .method-tag {
         background: none repeat scroll 0% 0% #24A600;
         border-radius: 3px;
@@ -176,137 +155,198 @@
         display: inline-block;
         text-decoration: none;
       }
+      .w120{
+        width: 140px;    
+      }
+      .w500{
+        width: 500px;
+      }      
+      .sub{
+        font-size: 10;
+      }
+      .red{        
+        color: rgb(211, 99, 99);
+      }
+      .tr{
+        padding-bottom: 10px;
+        padding-right: 10;
+      }
+      .tr2{
+        padding-bottom: 20px;
+      }
+      .subtype{
+        font-style: italic;
+      }
+      .desc{
+        font-size: 20px;
+      }
+      .cc{
+        font-size: 18px; 
+        font-weight: bold;
+      }
     </style>
   </head>
   <body>
-    <h1>home-iot-api</h1>
-      <div class="app-desc">The API for the EatBacon IOT project</div>
-      <div class="app-desc">Version: 1.0.0</div>
-      <div class="app-desc">BasePath:/data/2.5</div>
-      <div class="license-info">All rights reserved</div>
-      <div class="license-url">http://apache.org/licenses/LICENSE-2.0.html</div>
-  
-  <div class="method-summary"></div> 
+    <div>
+       <div class="toptitle" style="padding-left: 10px;"><span style="font-size: 28px;">home-iot-api</span></div>
+      <div><span class="desc">The API for the EatBacon IOT project</span></div>
+      <div ><span class="desc">Version: 1.0.0</span></div>
+      <div><span class="desc">Server: https://api.openweathermap.org/data/2.5</span></div>
+      <div style="margin-bottom: 30px;"> <span class="desc">Full request: https://api.openweathermap.org/data/2.5/weather?q=Kyiv&appid=011f064641e6cb25778c2333528e898a&units=metric&lang=ua</span></div>
+    
+      <!--TABLE-->
+        <div class="method-path">
+          <pre class="get"><code class="huge"><span class="http-method">get</span> /weathers</code></pre>
+        </div>
+        <div class="method-summary">Запит погоди (<span class="nickname">giveWeather</span>)</div>
+        <div class="method-notes"></div>
+        <h3 class="field-label" style="font-size: 20px; margin-bottom: 20px;">Query parameters</h3>
+        <table>
+          <thead style="text-align: left;">
+            <tr><th class="w120" style=" font-size: 20px; font-weight: bold;">Name</th> <th class="w500" style="font-size: 20px; font-weight: bold;">Description</th></tr>
+          </thead>
+          <tbody>
+            <tr ><td class="w120 tr"><span style="font-size: 20px; font-weight: bold;">q</span><span class="sub red"> (required)</span><br>
+            <span class="subtype">string</span></td> <td class="w500 tr"> <span>Місто, для якого ви хочете отримати інформацію про погоду. <br></span>
+            <span>Приклад вмісту: </span><textarea class="form-control" id="exampleFormControlTextarea1" rows="1">Kiyv</textarea></td></tr>
+            <tr><td class="w120 tr"><span style="font-size: 20px; font-weight: bold;">appid</span><span class="sub red"> (required)</span><br>
+            <span class="subtype">string</span></td> <td class="w500 tr"> <span>Ваш особисти OpenWeatherMap API ключ. <br></span>
+            <span>Приклад вмісту: </span><textarea class="form-control" id="exampleFormControlTextarea1" rows="1">011f064641e6cb25778c2333528e898a</textarea></td></tr>
+            <tr><td class="w120 tr"><span style="font-size: 20px;">units</span><span class="sub"> (optional)</span><br>
+            <span class="subtype">string</span></td> <td class="w500 tr"> <span>Одиниця виміру температури та дальності (метрична, британська або стандартна).<br></span>
+            <span>Приклад вмісту: </span> <select class="form-select" aria-label="Default select example">
+              <option selected>metric</option>
+              <option value="imperial">imperial</option>
+              <option value="default">default</option>
+            </select></td></tr>
+            <tr><td class="w120 tr"><span style="font-size: 20px;">lang</span><span class="sub"> (optional)</span><br>
+              <span class="subtype">string</span></td> <td class="w500 tr"> <span>На якій мові будуть значення типу string.<br></span>
+              <span>Приклад вмісту: </span> <textarea class="form-control" id="exampleFormControlTextarea1" rows="1">ua</textarea></td></tr>
+          </tbody>
+        </table>  <!-- field-items <h3 style="font-size: 20px">Відповіді</h3> -->
 
-  <h1><a name="Default">Default</a></h1>
-  <div class="method"><a name="giveWeather"></a>
-    <div class="method-path">
-      <a class="up" href="#__Methods">Up</a>
-      <pre class="get"><code class="huge"><span class="http-method">get</span> /weathers</code></pre>
+        <h3 class="field-label">Produces</h3>
+        Цей виклик API створює наступні типи медіа відповідно до заголовка запиту Accept; 
+        тип медіа буде передано в заголовку відповіді Content-Type.
+        <ul>
+          <li><code>application/json</code></li>
+        </ul>
+        <table><tbody>
+          <tr><td class="w120"><h4 style="font-size: 18px; font-weight: bold; ">200</h4></td>
+            <td class="w500"><span style="font-size: 16px;">Запит успішний. Відображається результат запиту</span><br>
+            <span>Приклад даних:</span><br>
+            <span>Content-Type: application/json</span></td></tr>
+          <tr><td class="tr2"></td>
+            <td class="tr2"><code style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(51,51,51); color: white;
+              line-height: 1.2; border: 1px solid #ccc; max-width: 780px">    
+     "coord": {                      
+         "lon": <span style="color: rgb(211, 99, 99);">30.5241</span>,   
+         "lat": <span style="color: rgb(211, 99, 99);">50.4501</span>    
+       },
+       "weather": [                
+         {
+           "id": <span style="color: rgb(211, 99, 99);">801</span>,
+           "main": <span style="color: rgb(74, 171, 42);">"Clouds"</span>,
+           "description": <span style="color: rgb(74, 171, 42);">"кілька хмар"</span>,
+           "icon": <span style="color: rgb(74, 171, 42);">"02d"</span>
+         }
+       ],
+       "base": <span style="color: rgb(74, 171, 42);">"stations"</span>,
+       "main": {
+         "temp": <span style="color: rgb(211, 99, 99);">19.52</span>,
+         "feels_like": <span style="color: rgb(211, 99, 99);">18.99</span>,
+         "temp_min": <span style="color: rgb(211, 99, 99);">19.02</span>,
+         "temp_max": <span style="color: rgb(211, 99, 99);">20.71</span>,
+         "pressure": <span style="color: rgb(211, 99, 99);">1014</span>,
+         "humidity": <span style="color: rgb(211, 99, 99);">56</span>
+       },
+       "visibility": <span style="color: rgb(211, 99, 99);">10000</span>,
+       "wind": {
+         "speed": <span style="color: rgb(211, 99, 99);">2.17</span>,
+         "deg": <span style="color: rgb(211, 99, 99);">242</span>,
+         "gust": <span style="color: rgb(211, 99, 99);">2.65</span>
+       },
+       "clouds": {
+         "all": <span style="color: rgb(211, 99, 99);">21</span>
+       },
+       "dt": <span style="color: rgb(211, 99, 99);">1696325885</span>,
+       "sys": {
+         "type": <span style="color: rgb(211, 99, 99);">2</span>,
+         "id": <span style="color: rgb(211, 99, 99);">2003742</span>,
+         "country": <span style="color: rgb(74, 171, 42);">"UA"</span>,
+         "sunrise": <span style="color: rgb(211, 99, 99);">1696305614</span>,
+         "sunset": <span style="color: rgb(211, 99, 99);">1696347225</span>
+       },
+       "timezone": <span style="color: rgb(211, 99, 99);">10800</span>,
+       "id": <span style="color: rgb(211, 99, 99);">703448</span>,
+       "name": <span style="color: rgb(74, 171, 42);">"Kyiv"</span>,
+       "cod": <span style="color: rgb(211, 99, 99);">200</span>
+     }
+      </code></td></tr>
+      <tr><td class="w120"><h4 style="font-size: 18px; font-weight: bold;">400</h4></td>
+        <td class="w500"><span style="font-size: 16px;">Помилка геоположення</span><br>
+        <span>Приклад даних:</span><br>
+        <span>Content-Type: application/json</span></td></tr>
+      <tr><td class="tr2"></td>
+        <td class="tr2"><code style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(51,51,51); color: white;
+          line-height: 1.2; border: 1px solid #ccc; max-width: 780px">    
+ {
+  "message": <span style="color: rgb(74, 171, 42);">"Nothing to geocode"</span>
+ }
+      </code></td></tr>
+      
+      <tr><td class="w120"><h4 style="font-size: 18px; font-weight: bold;">401</h4></td>
+        <td class="w500"><span style="font-size: 16px;">Помилка ключа</span><br>
+        <span>Приклад даних:</span><br>
+        <span>Content-Type: application/json</span></td></tr>
+      <tr><td class="tr2"></td>
+        <td class="tr2"><code style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(51,51,51); color: white;
+          line-height: 1.2; border: 1px solid #ccc; max-width: 780px">    
+ {
+  "message": <span style="color: rgb(74, 171, 42);">"Invalid API key. Please see https://openweathermap.org/faq#error401 for more info."</span>
+ }
+      </code></td></tr>      
+      <tr><td class="w120"><h4 style="font-size: 18px; font-weight: bold;">default</h4></td>
+        <td class="w500"><span style="font-size: 16px;">Unexpected error</span><br></tr>
+      </tbody></table>  
+      
+      <div style="margin-top: 20px; margin-bottom: 10px;"><span style="font-size: 20px; font-weight: bold;">Змінні та їх значення</span></div>
+      <code class="cc">coord</code> <br>
+        <ul><code class="cc">lon</code> - Довгота місцезнаходження <br>
+          <code class="cc">lat</code> - Широта місця розташування  <br></ul>
+      <code class="cc">weather</code><br>
+        <ul><code class="cc">id</code> - Ідентифікатор погодних умов <br>
+          <code class="cc">main</code> - Група погодних параметрів (Дощ, Сніг, Хмари тощо) <br>
+          <code class="cc">description</code> - Погодні умови в групі. Будь ласка, знайдіть більше тут. Ви можете отримати вихідні дані на вашій мові.<br>
+          <code class="cc">icon</code> -Ідентифікатор піктограми погоди<br></ul>
+      <code class="cc">base</code> -Внутрішній параметр<br>
+      <code class="cc">main</code> <br>
+        <ul><code class="cc">temp</code> - Температура. Одиниці за замовчуванням: Кельвін, метрична: Цельсій, Імперіал: Фаренгейт <br>
+          <code class="cc">feels_like</code> - Температура. Цей параметр температури враховує людське сприйняття погоди. Одиниця за замовчуванням: Кельвін, метрична: Цельсій, Імперіал: Фаренгейт <br>
+          <code class="cc">temp_min</code> - Мінімальна температура на даний момент. Одиниця за замовчуванням: Кельвін, метрична: Цельсій, Імперіал: Фаренгейт <br>
+          <code class="cc">temp_max</code> - Максимальна температура на даний момент. Одиниця за замовчуванням: Кельвін, метрична: Цельсій, Імперіал: Фаренгейт <br>
+          <code class="cc">pressure</code> - Атмосферний тиск на рівні моря, гПа <br>
+          <code class="cc">humidity</code> - Вологість, %. <br></ul>
+      <code class="cc">visibility</code> - Видимість, метр. Максимальне значення видимості - 10 км <br>
+      <code class="cc">wind</code> <br>
+        <ul><code class="cc">speed</code> - Швидкість вітру. Одиниця за замовчуванням: метрична: метр/сек, метрична: метр/сек, англійська: милі/год <br>
+          <code class="cc">deg</code> - Напрямок вітру, градуси (метеорологічний) <br>
+          <code class="cc">gust</code> - Порив вітру. Одиниця за замовчуванням: метрична: метр/сек, метрична: метр/сек, англійська: милі/годину <br></ul>
+      <code class="cc">clouds</code> <br>
+        <ul><code class="cc">all</code> - Хмарність, % <br></ul>
+      <code class="cc">dt</code> - Час розрахунку даних, unix, UTC <br>
+      <code class="cc">sys</code> <br>
+        <ul><code class="cc">type</code> - Внутрішній параметр <br>
+          <code class="cc">id</code> - Внутрішній параметр <br>
+          <code class="cc">country</code> - Код країни (GB, JP і т.д.) <br>
+          <code class="cc">sunrise</code> - Час сходу сонця, unix, UTC <br>
+          <code class="cc">sunset</code> - Час заходу сонця, unix, UTC <br></ul>
+      <code class="cc">timezone</code> - Час у секундах від UTC<br>
+      <code class="cc">id</code> - Ідентифікатор міста. Зверніть увагу, що вбудований функціонал геокодера застарілий.<br>
+      <code class="cc">name</code> - Назва міста. Зверніть увагу, що вбудований функціонал геокодера застарілий.<br>
+      <code class="cc">cod</code> - Внутрішній параметр <br>
+
     </div>
-    <div class="method-summary">Запит погоди (<span class="nickname">giveWeather</span>)</div>
-    <div class="method-notes"></div>
-
-    <h3 class="field-label">Query parameters</h3>
-    <div class="field-items">
-      <div class="param">q (required)</div>
-      
-            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Місто, для якого ви хочете отримати інформацію про погоду. </div>      
-            <div class="param">appid (required)</div>
-      
-            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Ваш особисти OpenWeatherMap API ключ. </div>      
-            <div class="param">units (optional)</div>
-      
-            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Одиниця виміру температури (метрична, британська або стандартна).</div>      
-            <div class="param">lang (optional)</div>
-      
-            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Мова для відповіді. </div>    
-    </div>  <!-- field-items -->
-
-
-
-    <!--Todo: process Response Object and its headers, schema, examples -->
-
-
-    <h3 class="field-label">Produces</h3>
-    Цей виклик API створює наступні типи медіа відповідно до <span class="header">Accept</span> request header;
-    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
-    <ul>
-      <li><code>application/json</code></li>
-    </ul>
-
-    <h3 class="field-label">Відповіді</h3>
     
-    <table></table>
-    <ul>
-      <h4 class="field-label">200 </h4><h3>- Відповідь має успіх</h3>
-    </ul>
-    
-    
-        <a href="#"></a>
-    <h3 class="field-label">Приклад даних</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <div>Приклад відповідді:</div>
-    <code style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(51,51,51); color: white;
-    line-height: 1.2; border: 1px solid #ccc; max-width: 330px">    
-    "coord": {
-        "lon": <span style="color: rgb(211, 99, 99);">30.5241</span>,
-        "lat": <span style="color: rgb(211, 99, 99);">50.4501</span>
-      },
-      "weather": [
-        {
-          "id": <span style="color: rgb(211, 99, 99);">801</span>,
-          "main": <span style="color: rgb(74, 171, 42);">"Clouds"</span>,
-          "description": <span style="color: rgb(74, 171, 42);">"кілька хмар"</span>,
-          "icon": <span style="color: rgb(74, 171, 42);">"02d"</span>
-        }
-      ],
-      "base": <span style="color: rgb(74, 171, 42);">"stations"</span>,
-      "main": {
-        "temp": <span style="color: rgb(211, 99, 99);">19.52</span>,
-        "feels_like": <span style="color: rgb(211, 99, 99);">18.99</span>,
-        "temp_min": <span style="color: rgb(211, 99, 99);">19.02</span>,
-        "temp_max": <span style="color: rgb(211, 99, 99);">20.71</span>,
-        "pressure": <span style="color: rgb(211, 99, 99);">1014</span>,
-        "humidity": <span style="color: rgb(211, 99, 99);">56</span>
-      },
-      "visibility": <span style="color: rgb(211, 99, 99);">10000</span>,
-      "wind": {
-        "speed": <span style="color: rgb(211, 99, 99);">2.17</span>,
-        "deg": <span style="color: rgb(211, 99, 99);">242</span>,
-        "gust": <span style="color: rgb(211, 99, 99);">2.65</span>
-      },
-      "clouds": {
-        "all": <span style="color: rgb(211, 99, 99);">21</span>
-      },
-      "dt": <span style="color: rgb(211, 99, 99);">1696325885</span>,
-      "sys": {
-        "type": <span style="color: rgb(211, 99, 99);">2</span>,
-        "id": <span style="color: rgb(211, 99, 99);">2003742</span>,
-        "country": <span style="color: rgb(74, 171, 42);">"UA"</span>,
-        "sunrise": <span style="color: rgb(211, 99, 99);">1696305614</span>,
-        "sunset": <span style="color: rgb(211, 99, 99);">1696347225</span>
-      },
-      "timezone": <span style="color: rgb(211, 99, 99);">10800</span>,
-      "id": <span style="color: rgb(211, 99, 99);">703448</span>,
-      "name": <span style="color: rgb(74, 171, 42);">"Kyiv"</span>,
-      "cod": <span style="color: rgb(211, 99, 99);">200</span>
-    }
-    </code>
-
-    <h4 class="field-label">400</h4>
-    Помилка геоположення
-        <a href="#"></a>
-    <h3 class="field-label">Приклад даних</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{&quot;message&quot;:&quot;Nothing to geocode&quot;}</code></pre>
-    <h4 class="field-label">401</h4>
-    Помилка ключа
-        <a href="#"></a>
-    <h3 class="field-label">Приклад даних</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{&quot;message&quot;:&quot;Invalid API key. Please see https://openweathermap.org/faq#error401 for more info.&quot;}</code></pre>
-    <h4 class="field-label">default</h4>
-    Unexpected error
-        <a href="#"></a>
-  </div> <!-- method -->
-  <hr/>
-
-  
-
-  <h3>Table of Contents</h3>
-  <ol>
-  </ol>
-
   </body>
 </html>
