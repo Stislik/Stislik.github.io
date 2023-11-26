@@ -17,7 +17,7 @@
         "parameters" : [ {
           "name" : "q",
           "in" : "query",
-          "description" : "The city for which you want to get the weather information",
+          "description" : "Місто, для якого ви хочете отримати інформацію про погоду.",
           "required" : true,
           "schema" : {
             "type" : "string",
@@ -26,7 +26,7 @@
         }, {
           "name" : "appid",
           "in" : "query",
-          "description" : "Your OpenWeatherMap API key",
+          "description" : "Ваш особистий ключ OpenWeatherMap API key",
           "required" : true,
           "schema" : {
             "type" : "string",
@@ -35,7 +35,7 @@
         }, {
           "name" : "units",
           "in" : "query",
-          "description" : "The unit of measurement for temperature (metric, imperial, or standard)",
+          "description" : "Одиниця виміру температури (метрична, британська або стандартна)",
           "required" : false,
           "schema" : {
             "type" : "string",
@@ -45,7 +45,7 @@
         }, {
           "name" : "lang",
           "in" : "query",
-          "description" : "The language for the response",
+          "description" : "Мова для відповіді",
           "required" : false,
           "schema" : {
             "type" : "string",
@@ -54,7 +54,7 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "відповідь має успіх",
+            "description" : "Відповідь має успіх",
             "content" : {
               "application/json" : {
                 "example" : {
@@ -101,7 +101,7 @@
                 }
               }
             },
-            "x-swagger-router-controller" : "Weathers"
+            "x-swagger-router-controller" : "Weather"
           },
           "401" : {
             "description" : "Помилка ключа",
@@ -112,7 +112,7 @@
                 }
               }
             },
-            "x-swagger-router-controller" : "Weathers"
+            "x-swagger-router-controller" : "Weather"
           },
           "400" : {
             "description" : "Помилка геоположення",
@@ -123,11 +123,11 @@
                 }
               }
             },
-            "x-swagger-router-controller" : "Weathers"
+            "x-swagger-router-controller" : "Weather"
           },
           "default" : {
             "description" : "Unexpected error",
-            "x-swagger-router-controller" : "Weathers"
+            "x-swagger-router-controller" : "Weather"
           }
         }
       }
